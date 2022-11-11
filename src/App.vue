@@ -122,20 +122,25 @@ const playlists = computed(() => [
 
           <div class="d-flex mt-2 mb-4">
             <div class="pa-2" v-for="{ label, description }, index in list" :style="{ width: `${100/list!.length}%`, boxSizing: 'border-box' }">
-              <va-card>
-                <va-card-content>
-                  <va-image
-                    :src="`https://picsum.photos/400/2${rowIndex}${index}`"
-                    :ratio="1"
-                  />
-                  <h6 class="va-h6" style="font-size: 16px">
-                    {{ label }}
-                  </h6>
-                  <p class="va-text-secondary va-text-truncate">
-                    {{ description }}
-                  </p>
-                </va-card-content>
-              </va-card>
+              <va-hover v-slot="{ hover }">
+                <va-card>
+                  <va-card-content>
+                    <div style="position: relative">
+                      <va-image
+                        :src="`https://picsum.photos/400/2${rowIndex}${index}`"
+                        :ratio="1"
+                      />
+                      <va-button v-show="hover" class="play-button" icon="play_arrow" size="large" />
+                    </div>
+                    <h6 class="va-h6" style="font-size: 16px">
+                      {{ label }}
+                    </h6>
+                    <p class="va-text-secondary va-text-truncate">
+                      {{ description }}
+                    </p>
+                  </va-card-content>
+                </va-card>
+              </va-hover>
             </div>
           </div>
         </div>
@@ -171,5 +176,11 @@ const playlists = computed(() => [
   width: 100%;
   flex-grow: 1;
   overflow-x: hidden;
+}
+
+.play-button {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
 }
 </style>
