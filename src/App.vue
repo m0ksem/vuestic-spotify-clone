@@ -106,10 +106,11 @@ const playlists = computed(() => [
         <template #left>
           <va-button class="mr-2" icon="arrow_back_ios" color="background-element" text-color="secondary" />
           <va-button icon="arrow_forward_ios" color="background-element" text-color="secondary" />
+          <va-input class="ml-3" placeholder="Search" style="--va-input-border-radius: 999999px" />
         </template>
         <template #right>
           <va-button class="mr-4" size="large" preset="plain" color="secondary">Sign up</va-button>
-          <va-button color="#fff" size="large" style="--va-button-lg-content-px: 2rem">Login</va-button>
+          <va-button size="large" style="--va-button-lg-content-px: 2rem">Login</va-button>
         </template>
       </va-navbar>
       <div class="page__content playlists pa-4">
@@ -130,7 +131,7 @@ const playlists = computed(() => [
                         :src="`https://picsum.photos/400/2${rowIndex}${index}`"
                         :ratio="1"
                       />
-                      <va-button v-show="hover" class="play-button" icon="play_arrow" size="large" />
+                      <va-button v-show="hover" class="play-button" color="primary" icon="play_arrow" size="large" />
                     </div>
                     <h6 class="va-h6" style="font-size: 16px">
                       {{ label }}
@@ -147,11 +148,11 @@ const playlists = computed(() => [
       </div>
     </div>
   </div>
-  <va-card style="background: linear-gradient(90deg,#af2896,#509bf5)" square>
-    <div class="d-flex align-center pa-4">
-      Made with <a class="ml-2" style="color: white; font-weight: bold; text-decoration: underline;" href="https://vuestic.dev/" target="_blank">Vuestic UI</a>
+  <va-card color="#af2896" gradient square>
+    <div class="d-flex align-center pa-3">
+      <a class="mr-2" style="color: white; font-weight: bold; text-decoration: underline;" href="https://vuestic.dev/" target="_blank">Vuestic UI</a> customization demo show case
       <va-spacer />
-      <va-button href="https://vuestic.dev/" target="_blank">View docs</va-button>
+      <va-button href="https://vuestic.dev/" target="_blank" size="large">View docs</va-button>
     </div>
   </va-card>
 </template>
@@ -167,7 +168,7 @@ const playlists = computed(() => [
   width: 100%;
   height: 100%;
   min-height: 500px;
-  background: linear-gradient(to top, rgba(0,0,0,.6) 0, #1f1f1f 100%);
+  background: linear-gradient(to top, rgba(0,0,0,.6) 0, var(--va-background-top-gradient) 100%);
 
   display: flex;
 }

@@ -23,6 +23,7 @@ createApp(App).use(createVuestic({
     components: {
       VaButton: {
         round: true,
+        color: '#fff'
       },
       VaCard: {
         color: '#171717',
